@@ -1,0 +1,72 @@
+501  cd /tmp/
+502  ls -la
+503  mkdir test
+504  cd test/
+505  ls -la
+506  git init
+507  ls -la
+508  touch README.md
+509  vi README.md 
+510  ls -la
+511  git status
+512  git add --all .
+513  git commit -am 'Initial commit.'
+514  ls -la
+515  git log
+516  ls -la
+517  vi composer.json
+518  composer install
+519  mkdir web
+520  vi web/app.php
+521  php -S 127.0.0.1:8000 -t web web/app.php 
+522  vi composer.json 
+523  composer update
+524  mkdir views
+525  vi views/index.html.twig
+526  vi web/app.php 
+527  php -S 127.0.0.1:8000 -t web web/app.php 
+528  vi .gitignore
+529  git status
+530  git add --all .
+531  git status
+532  git commit -am 'Initialize with silex + twig hello example.'
+533  git log
+534  ls -al
+535  vi views/html.html.twig 
+536  php -S 127.0.0.1:8000 -t web web/app.php 
+537  bg
+538  ls -la
+539  ls -al
+540  git status
+541  git add --all .
+542  git status
+543  git diff HEAD | colordiff | less -R
+544  git add --all .
+545  git diff HEAD | colordiff | less -R
+546  vi views/html.html.twig 
+547  git diff HEAD | colordiff | less -R
+548  git diff HEAD | colordiff | less -R
+549  ls -la web/
+550  ls -la web/css/
+551  vi web/css/style.css 
+552  fg
+553  php -S 127.0.0.1:8000 -t web web/app.php
+554  ls -la web/css/
+555  ls -la web/css/
+556  php -S 127.0.0.1:8000 -t web/ web/app.php
+557  ls -la
+558  cd web/
+559  ls -al
+560  vi css/style.css 
+561  cd ..
+562  ls -al
+563  php -S 127.0.0.1:8000 -t web web/app.php
+564  php --help
+565  php -S 127.0.0.1:8000 -t web web/app.php
+566  bg
+567  ls -la
+568  git diff HEAD | colordiff | less -R
+569  git commit -am 'Clone index page from authbucket/oauth2.'
+570  git status
+571  git log
+572  history 
