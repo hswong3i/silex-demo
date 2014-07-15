@@ -1,24 +1,36 @@
 <?php
 
-require_once __DIR__ . '/../vendor/autoload.php'; 
+// @link http://silex.sensiolabs.org/doc/web_servers.html#php-5-4
+$filename = __DIR__ . preg_replace('#(\?.*)$#', '', $_SERVER['REQUEST_URI']);
+if (php_sapi_name() === 'cli-server' && is_file($filename)) {
+    return false;
+}
 
-$app = new Silex\Application(); 
+// Load all libraries.
+require_once __DIR__ . '/../vendor/autoload.php';
 
+// Create new Application.
+$app = new Silex\Application();
+
+// Enable all required service provider.
+$app->register(new Silex\Provider\TwigServiceProvider());
+
+// Configuration.
 $app['debug'] = true;
+$app['twig.path'] = __DIR__ . '/../views';
 
-$app->register(new Silex\Provider\TwigServiceProvider(), array(
-    'twig.path' => __DIR__ . '/../views',
-));
-
-$app->get('/', function() use ($app) {
+// Routers.
+$app->get('/', function () use ($app) {
     return $app['twig']->render('index.html.twig');
 });
 
-$app->get('/hello/{name}', function($name) use ($app) { 
-#    return 'Hello ' . $app->escape($name); 
+$app->get('/hello/{name}', function ($name) use ($app) {
+    #return 'Hello ' . $app->escape($name);
+
     return $app['twig']->render('hello.twig', array(
         'name' => $name,
     ));
-}); 
+});
 
-$app->run(); 
+// Run Application.
+$app->run();
